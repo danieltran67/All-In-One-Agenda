@@ -12,7 +12,7 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm();
+    form = LoginForm()
     if form.validate_on_submit():
         flash('Login requested for user {}, remember_me ={}'.format(
             form.username.data, form.remember_me.data))
@@ -28,7 +28,7 @@ def register():
 
 @app.route('/settings')
 def settings():
-    return render_template("settings.html",title='Settings')
+    return render_template("settings.html", title='Settings')
 
 
 if __name__ == '__main__':
