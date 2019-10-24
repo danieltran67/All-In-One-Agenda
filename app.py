@@ -12,12 +12,18 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm();
-    if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me ={}'.format(
-            form.username.data, form.remember_me.data))
-        return redirect('/index')
-    return render_template('login.html', form=form, title='Login')
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Username and / or password is incorrect. Please try again.'
+        else:
+            return render_template('welcome.html')  # redirect(url_for('welcome')) maybe try to use this? still works.
+    return render_template('login.html', error=error)
+
+@app.route('/welcome', methods=['POST'])
+def welcome():
+    name = request.form['username']  # request.form username doesn't work, need another way to grab the username.
+    return render_template('welcome.html', name=name)
 
 
 @app.route('/register', methods=['GET', 'POST'])
