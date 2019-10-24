@@ -20,10 +20,18 @@ def login():
             return render_template('welcome.html')  # redirect(url_for('welcome')) maybe try to use this? still works.
     return render_template('login.html', error=error)
 
+
 @app.route('/welcome', methods=['POST'])
 def welcome():
     name = request.form['username']  # request.form username doesn't work, need another way to grab the username.
     return render_template('welcome.html', name=name)
+
+
+@app.route('/addevents')
+def addEvents():
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+              'November', 'December']
+    return render_template('addevents.html', months=months)
 
 
 @app.route('/register', methods=['GET', 'POST'])
