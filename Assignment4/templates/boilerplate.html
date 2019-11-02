@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Import your css file here -->
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body class='bg-light'>
+    <nav class="">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active">Data</li>
+        </ol>
+    </nav>
+<div class="container">
+    <div id="mainheader">
+        <h1>Welcome to CMPE131</h1>
+        <p>Let us see what kind of page we can create!</p>
+    </div>
+
+        <div class="data row">
+            <div>
+                <h4> Billing Address</h4>
+                <!-- BILLING FORM -->
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>First name</label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Last name</label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input  placeholder="Password" type="password" class="form-control">
+                        <small class="form-text text-muted">pssst...this is not real</small>
+                    </div>
+
+                    <a href="https://www.google.com/">google</a>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Continue to checkout</button>
+                <!--    <button type="Submit">Continue to checkout</button> -->
+                    <button type="Submit" class="btn btn-secondary">Cancel</button>
+                 <!--   <button type="Submit">Cancel</button> -->
+                </form>
+            </div>
+
+            <!-- LIST GROUP -->
+            <div class="col-md-4 sum">
+                <ul class="list-group">
+				    <h4> Summary </h4>
+
+                    <li id="myLaptop" class="list-group-item d-flex">
+                        <div> Laptop </div>
+                        <div> $1000 </div>
+                    </li>
+                    <li id="myDesk" class="list-group-item d-flex">
+                        <div> Desk </div>
+                        <div> $100 </div>
+                    </li>
+                    <li id="myChair" class="list-group-item d-flex">
+                        <div> Chair </div>
+                        <div> $50 </div>
+
+                    </li>
+                    <li id="myTotal" class="list-group-item d-flex">
+                        <b>Total</b>
+                        <div> $1150 </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+
+h1{
+    color: rgb(0,0,200);
+}
+div + a:hover{
+    background-color: black;
+}
+nav.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+nav.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+#myLaptop {
+    display: flex;
+    justify-content: space-between;
+}
+
+#myDesk{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#myChair {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#myTotal {
+    display: flex;
+    justify-content: space-around;
+}
+
+#mainheader {
+    text-align: center;
+}
+
+ul h4{
+    border-style: solid;
+}
+
+
