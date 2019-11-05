@@ -1,5 +1,4 @@
 django
-flaskr
 atomicwrites==1.3.0
 attrs==19.3.0
 Click==7.0
