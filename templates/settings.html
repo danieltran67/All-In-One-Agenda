@@ -2,11 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form>
-        Add Event<br><br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Add Event</h1>
+
+  </div>
         <span style="color: blue; "><strong>Name of Event</strong></span><br>
         <input type="text" name="event_name"><br>
         Time<br>
@@ -19,14 +33,16 @@
         <br><br>
         <a href="https://www.google.com/">Edit Events</a><br>
         <br><br><br>
-        <span style="color: orange; "><strong>Share Events</strong></span><br><br>
-        Username<br>
-        <input type="text" name="event_name"><br>
-        <br><br><br>
-        <input type="submit" value="Submit"><br>
+       <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Events</a>
+  <div id="demo" class="collapse">
+     Username<br>
+        <input type="text" name="event_name">
+    <br><br><input type="submit" value="Submit">
+  </div>
 
 
 
+</div>
     </form>
 </body>
 </html>
