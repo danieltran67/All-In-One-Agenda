@@ -16,8 +16,8 @@ def test_new_user(new_user):
     assert new_user.role == 'user'
   """
 import flask
-import os
 
+import pytest
 from django.core import mail
 from flask import Flask, request
 from app import db, User
@@ -27,21 +27,18 @@ from flask_testing import LiveServerTestCase
 app = flask.Flask(__name__)
 
 
+@pytest.mark.django_db
+def test_my_user():
+    me = User(username='me')
+    assert me
+
+
 def test_database():
     user = User()
     db.session.add(user)
     db.session.commit()
 
     assert user in db.session
-
-
-def test_name():
-    name = User(username='Daniel')
-
-    db.session.add(name)
-    db.session.commit()
-
-    assert name in db.session
 
 
 class SomeTest:
