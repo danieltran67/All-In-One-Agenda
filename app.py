@@ -81,6 +81,10 @@ def signup():
 def forgotpassword():
     return render_template('forgotpassword.html')
 
+@app.route('/resetpassword')
+def resetpassword():
+    return render_template('resetpassword.html')
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
