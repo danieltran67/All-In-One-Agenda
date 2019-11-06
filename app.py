@@ -3,7 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm 
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy  import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
@@ -31,15 +31,15 @@ def load_user(user_id):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
-    remember = BooleanField('Remember Me')
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    remember = BooleanField('remember me')
 
 
 class RegisterForm(FlaskForm):
-    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
-    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
 
 
 @app.route('/')
@@ -77,6 +77,9 @@ def signup():
 
     return render_template('signup.html', form=form)
 
+@app.route('/forgotpassword')
+def forgotpassword():
+    return render_template('forgotpassword.html')
 
 @app.route('/dashboard')
 @login_required
@@ -90,10 +93,10 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/calendar')
+@app.route('/settings')
 @login_required
-def calendar():
-    return render_template('calendar.html')
+def settings():
+    return render_template('settings.html')
 
 
 @app.route('/logout')
@@ -101,6 +104,7 @@ def calendar():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 
 
 if __name__ == '__main__':
