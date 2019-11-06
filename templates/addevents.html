@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-{% block content %}
-    <head>
+<!doctype html>
+<html>
+<head>
         <meta charset="UTF-8">
         <title>Add Events</title>
-    </head>
-    <strong>Add Events</strong><br>
-    <style>
-        div
-        {
-            max-width: 300px;
-        }
-    </style>
-    <body>
+        <h1>Welcome {{ name }}</h1>
+</head>
+<body>
         <div style="background-color:lightblue">
             <form action="" method="post">
                 Event Title: <input type="text" event="event"><br>
@@ -41,6 +33,7 @@
             Username: <input type="text" event="sharingToUsername">
             <input type="submit" value="Submit"/>
         </div>
-    </body>
-    </html>
-{% endblock %}
+</body>
+</html>
+
+

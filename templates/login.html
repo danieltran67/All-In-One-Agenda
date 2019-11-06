@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <style>
-        .centeredloginforh1
-        {
-            background-color: lightblue;
-            color: black;
-            padding: 40px;
-            text-align: center;
-        }
-        .centeredloginforfields
-        {
-            padding: 30px;
-            text-align: center;
-            border: solid;
-        }
-    </style>
-</head>
-<body>
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+{% endblock %}
+
+{% block content %}
     <div class="container">
-        <h1 class="centeredloginforh1"><font face="arial" size="10">Login to your All-In-One Agenda</font>
-            <br>
-            <p><font face="verdenna" size ="3"><i>"A calendar for <span style="color:yellow">all</span> your calendars."</i></font></p>
-        </h1>
-        <br>
-        <br>
-        <br>
-        <form class="centeredloginforfields" action="" method="post">
-            <input type="text" placeholder="Username" name="username" value="{{ request.form.username }}">
-            <input type="text" placeholder="Password" name="password" value="{{ request.form.password }}">
-            <input class="btn btn-default" type="submit" value="Login">
-            <br>
-            <br>
-            Don't have an account? <a href="register">Register here!</a>
-        </form>
-        <br>
-        {% if error %}
-            <p class="error centeredloginforfields"><strong><span style="color:red">Error: {{ error }}</span></strong></p>
-        {% endif %}
-    </div>
-</body>
-</html>
+
+      <form class="form-signin" method="POST" action="/login">
+        <h2 class="form-signin-heading">Sign In</h2>
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.remember) }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+{% endblock %}
