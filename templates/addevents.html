@@ -1,53 +1,54 @@
-<!doctype html>
-<html>
-<head>
-         <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Settings</title>
-    <link rel="stylesheet" href="{{url_for('.static', filename='settings.css')}}">
+  <!doctype html>
+  <html>
+  <head>
+           <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="{{url_for('.static', filename='settings.css')}}">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <title>Add Events</title>
-        <h1>Welcome {{ name }}</h1>
-</head>
-<body style="background-color:lightblue">
-        <div style="text-align:center;">
-            <form action="" method="post">
-                Event Title: <input type="text" event="event"><br>
-                Date: <input type="number" name="day" value ="1" step="0.5" min="1" max="31">
-                    <select name="month">
-                        {% for month in months %}
-                        <option name="month">{{ month }}</option>
-                        {% endfor %}
-                    </select>
-                    <select name="year">
-                        <option selected="selected" name="year">2019</option>
-                        <option name="year">2020</option>
-                    </select><br>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+          <title>Add Events</title>
+    <div style="text-align:center;">   
+    <h1>Welcome {{ name }}</h1>
+      </div?
+  </head>
+  <body style="background-color:lightblue">
+          <div style="text-align:center;">
+              <form action="" method="post">
+                  Event Title: <input type="text" event="event"><br>
+                  Date: <input type="number" name="day" value ="1" step="0.5" min="1" max="31">
+                      <select name="month">
+                          {% for month in months %}
+                          <option name="month">{{ month }}</option>
+                          {% endfor %}
+                      </select>
+                      <select name="year">
+                          <option selected="selected" name="year">2019</option>
+                          <option name="year">2020</option>
+                      </select><br>
 
-                <textarea cols="30" name="eventDetails" rows="5"></textarea>
-              <br>  
-              <label>
-                  Set Alarm
-    <input type="checkbox" class="btn btn-outline-warning" name="Visited" value="Visited"><br>
-                </label><br/>
-                <input type="submit" type="submit" class="btn btn-light" value="Submit"/>
-            </form>
-        </div>
-        <br>
-       <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Events</a>
-  <div id="demo" class="collapse">
-     Username<br>
-        <input type="text" name="event_name">
-    <br><br><input type="submit" class="btn btn-light" value="Submit">
-        </div>
-</body>
-</html>
+                  <textarea cols="30" name="eventDetails" rows="5"></textarea>
+                <br>  
+                <label>
+                    Set Alarm
+      <input type="checkbox" class="btn btn-outline-warning" name="Visited" value="Visited"><br>
+                  </label><br/>
+                  <input type="submit" type="submit" class="btn btn-light" value="Submit"/>
+              </form>
+          </div>
+          <br>
+         <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Events</a>
+    <div id="demo" class="collapse">
+       Username<br>
+          <input type="text" name="event_name">
+      <br><br><input type="submit" class="btn btn-light" value="Submit">
+          </div>
+  </body>
+  </html>
 
 
