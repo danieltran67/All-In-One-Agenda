@@ -1,12 +1,11 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm 
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from werkzeug.urls import url_encode
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -32,15 +31,15 @@ def load_user(user_id):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-    remember = BooleanField('remember me')
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    remember = BooleanField('Remember Me')
 
 
 class RegisterForm(FlaskForm):
-    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
 
 
 @app.route('/')
@@ -91,10 +90,10 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/settings')
+@app.route('/calendar')
 @login_required
-def settings():
-    return render_template('settings.html')
+def calendar():
+    return render_template('calendar.html')
 
 
 @app.route('/logout')
