@@ -2,7 +2,8 @@ body {
   padding-top: 250px;
   background-color: black;
   color: white;
-  font-family: "Arial ";
+  font-family: "Arial";
+  font-size: 20px;
 }
 .starter-template {
   padding: 30px 15px;
