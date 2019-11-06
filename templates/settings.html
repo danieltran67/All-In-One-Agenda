@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings</title>
-
+    <link rel="stylesheet" href="{{url_for('.static', filename='settings.css')}}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -15,7 +15,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form>
 <div class="container">
   <div class="jumbotron">
     <h1>Add Event</h1>
@@ -31,7 +30,7 @@
         <br><br><br>
         <input type="submit" value="Submit"><br>
         <br><br>
-        <a href="https://www.google.com/">Edit Events</a><br>
+        <a href="https://www.google.com/"> <button type="button" class="btn btn-danger">Edit Event</button></a><br>
         <br><br><br>
        <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Events</a>
   <div id="demo" class="collapse">
@@ -39,10 +38,12 @@
         <input type="text" name="event_name">
     <br><br><input type="submit" value="Submit">
   </div>
+  </div>
+
+
 
 
 
 </div>
-    </form>
 </body>
 </html>
