@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm 
+from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
 from flask_sqlalchemy import SQLAlchemy
@@ -23,6 +23,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
+    answer = db.Column(db.String(30))
 
 
 @login_manager.user_loader
@@ -31,15 +32,21 @@ def load_user(user_id):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
-    remember = BooleanField('Remember Me')
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    remember = BooleanField('remember me')
 
 
 class RegisterForm(FlaskForm):
-    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
-    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    answer = StringField('answer', validators=[InputRequired(), Length(min=4, max=30)])
+
+
+class ForgotPasswordForm(FlaskForm):
+    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    answer = StringField('answer', validators=[InputRequired(), Length(min=4, max=30)])
 
 
 @app.route('/')
@@ -69,13 +76,22 @@ def signup():
 
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
-        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password,
+                        answer=form.answer.data)
         db.session.add(new_user)
         db.session.commit()
 
-        return '<h1>New user has been created!</h1>'
+        return render_template('index.html')
 
     return render_template('signup.html', form=form)
+
+
+@app.route('/forgotpassword', methods=['GET', 'POST'])
+def forgotpassword():
+    form = ForgotPasswordForm()
+    if form.is_submitted():
+        return '<h1>Password is testtest </h1>'
+    return render_template('forgotpassword.html', form=form)
 
 
 @app.route('/dashboard')
@@ -90,10 +106,10 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/calendar')
+@app.route('/settings')
 @login_required
-def calendar():
-    return render_template('calendar.html')
+def settings():
+    return render_template('settings.html')
 
 
 @app.route('/logout')
