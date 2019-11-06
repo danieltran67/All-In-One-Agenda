@@ -1,7 +1,18 @@
 <!doctype html>
 <html>
 <head>
-        <meta charset="UTF-8">
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{url_for('.static', filename='settings.css')}}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Add Events</title>
         <h1>Welcome {{ name }}</h1>
 </head>
@@ -28,10 +39,11 @@
             </form>
         </div>
         <br>
-        <strong>Submit and Share Event</strong><br>
-        <div style="background-color:yellow">
-            Username: <input type="text" event="sharingToUsername">
-            <input type="submit" value="Submit"/>
+       <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Events</a>
+  <div id="demo" class="collapse">
+     Username<br>
+        <input type="text" name="event_name">
+    <br><br><input type="submit" class="btn btn-light" value="Submit">
         </div>
 </body>
 </html>
