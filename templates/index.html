@@ -6,7 +6,7 @@ All-in-One Agenda
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -19,24 +19,42 @@ All-in-One Agenda
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">All-In-One Agenda</a>
+          <a class="navbar-brand navbar-font">All-In-One Agenda</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-font">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
+      <div class="welcome-page">
         <h1>Welcome to All-In-One Agenda</h1>
-        <p class="lead">Edit this when you have the time<br> Make sure to change the Color, Bootstrap, and Text to avoid plagarism -DANIEL</p>
+          <p class="lead"><em>"Simple Simply Simplified"</em></p>
       </div>
+
+    <div class="welcome-page-about">
+        <h4><strong>About</strong></h4>
+        <p>
+            The All-In-One Agenda is a program built to simplify and ease your life. This website is a scheduling/calendar
+            program that lets you create tasks, add events, set alarms, schedule events, and plan your life out. Our goal
+            was to simplify your life, and what better way to simplify your life than to have a simple, easy-to-use
+            web application. Our application's goal was to be simplify life and fundamentally be simple for everyone.
+        </p>
+
+        <br>
+
+        <strong>About Us</strong>
+        <p>
+            This website was made by Team 11 of Professor Rojas' class (Section 50075). The team members consist of
+            Saeed Baqalaql, Antonio Magana, Anthony Nguyen, and Daniel Tran.
+        </p>
+
+    </div>
 
     </div>
 {% endblock %}
