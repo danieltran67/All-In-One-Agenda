@@ -1,8 +1,12 @@
 body{
     background-color: black;
+  
 }
 h1{
     color: black;
     font-family: Arial;
     font-size: 40px;
+}
+div.size{
+  font-size: 18px
 }
