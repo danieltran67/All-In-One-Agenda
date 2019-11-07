@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+SecurityQuestion
+{% endblock %}
+
+{% block content %}
+<div style="color:dimgray; text-align:left;" class="container">
+        <div class="container-fluid">
+            <div class="row">
+              <h1>Please answer your security question</h1>
+            </div>
+        </div>
+    </div>
+        <div style="color:dimgray;" class="col-xs-4 forgot-form">
+            <p>{Security Question from Database goes here}</p>
+                <label for="label">Answer</label> 
+                <input type="text" class = "form-control" placeholder="Answer"><br><br>
+            <div>
+                <a class="btn btn-primary" href="/resetpassword" role="button">Submit</a>
+            </div>
+
+         </div>        
+
+{% endblock %}
