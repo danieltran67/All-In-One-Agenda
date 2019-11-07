@@ -81,6 +81,10 @@ def signup():
 def forgotpassword():
     return render_template('forgotpassword.html')
 
+@app.route('/securityquestion')
+def securityquestion():
+    return render_template('securityquestion.html')
+
 @app.route('/resetpassword')
 def resetpassword():
     return render_template('resetpassword.html')
