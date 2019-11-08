@@ -1,9 +1,9 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm 
+from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
-from flask_sqlalchemy  import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
@@ -13,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
+dbCheck = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
@@ -23,7 +24,12 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
+    answer = db.Column(db.String(30))
 
+class User(dbCheck.Model):
+    id = dbCheck.Column(dbCheck.Integer, primary_key=True)
+    text =  dbCheck.Column(dbCheck.String(200))
+    complete = dbCheck.Column(dbCheck.Boolean)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -40,6 +46,12 @@ class RegisterForm(FlaskForm):
     email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    answer = StringField('answer', validators=[InputRequired(), Length(min=4, max=30)])
+
+
+class ForgotPasswordForm(FlaskForm):
+    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    answer = StringField('answer', validators=[InputRequired(), Length(min=4, max=30)])
 
 
 @app.route('/')
@@ -69,25 +81,26 @@ def signup():
 
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
-        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password,
+                        answer=form.answer.data)
         db.session.add(new_user)
         db.session.commit()
 
-        return '<h1>New user has been created!</h1>'
+        return render_template('index.html')
 
     return render_template('signup.html', form=form)
 
-@app.route('/forgotpassword')
+@app.route('/add', methods=['POST'])
+def add():
+    return '<h1>{}</h1>'.format(request.form['todoitem'])
+
+@app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
-    return render_template('forgotpassword.html')
+    form = ForgotPasswordForm()
+    if form.is_submitted():
+        return '<h1>Password is testtest </h1>'
+    return render_template('forgotpassword.html', form=form)
 
-@app.route('/securityquestion')
-def securityquestion():
-    return render_template('securityquestion.html')
-
-@app.route('/resetpassword')
-def resetpassword():
-    return render_template('resetpassword.html')
 
 @app.route('/dashboard')
 @login_required
@@ -112,7 +125,6 @@ def settings():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
 
 
 if __name__ == '__main__':
