@@ -8,18 +8,27 @@ Dashboard
 {{super()}}
 <link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
 {% endblock %}
-
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 {% block content %}
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Homepage</a></li>
+            <li><a href="index">Homepage</a></li>
             <li><a href="settings">Settings</a></li>
-            <li><a href="addevents">Calendar</a></li>
-            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="addevents">Edit Calendar</a></li>
+
           </ul>
         </div>
       </div>
     </nav>
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=ZGFuaWVsdHJhbjE1MEBnbWFpbC5jb20&amp;src=ZmFtaWx5MTA4NTc1MDQ1Mzg4MjA3NDgzOTdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23336699&amp;color=%235A9A08&amp;color=%23336699" style="border-width:0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
 {% endblock %}
