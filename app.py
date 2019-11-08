@@ -106,12 +106,6 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/settings')
-@login_required
-def settings():
-    return render_template('settings.html')
-
-
 @app.route('/logout')
 @login_required
 def logout():
