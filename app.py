@@ -32,21 +32,21 @@ def load_user(user_id):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-    remember = BooleanField('remember me')
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    remember = BooleanField('Remember Me')
 
 
 class RegisterForm(FlaskForm):
-    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-    answer = StringField('answer', validators=[InputRequired(), Length(min=4, max=30)])
+    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    answer = StringField('Answer', validators=[InputRequired(), Length(min=4, max=30)])
 
 
 class ForgotPasswordForm(FlaskForm):
-    email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
-    answer = StringField('answer', validators=[InputRequired(), Length(min=4, max=30)])
+    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    answer = StringField('Answer', validators=[InputRequired(), Length(min=4, max=30)])
 
 
 @app.route('/')
@@ -65,7 +65,7 @@ def login():
                 login_user(user, remember=form.remember.data)
                 return redirect(url_for('dashboard'))
 
-        return '<h1>Invalid username or password</h1>'
+        return '<h1>Invalid Username or Password</h1>'
 
     return render_template('login.html', form=form)
 
