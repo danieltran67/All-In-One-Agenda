@@ -11,3 +11,6 @@ div.size{
   font-size: 25px
   font-family: Arial;   
 }
+div#demo{
+  color: white;
+}
