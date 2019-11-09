@@ -7,10 +7,10 @@ h1{
     font-family: Arial;
     font-size: 40px;
 }
-div.size{
+.size{
   font-size: 25px
   font-family: Arial;   
 }
-div#demo{
+#demo{
   color: white;
 }
