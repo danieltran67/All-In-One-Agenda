@@ -5,6 +5,6 @@ setup(
     packages=['flaskr'],
     include_package_data=True,
     install_requires=[
-        'flask',
+        'flask', 'yagmail', 'keyring', 'itsdangerous', 'wtforms', 'werkzeug', 'googleapiclient', 'google'
     ],
 )
