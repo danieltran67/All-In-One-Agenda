@@ -29,15 +29,18 @@ Dashboard
       <ul class="dropdown-menu">
 --><div>
     <div>Add a new item: 
-        <form action="/add" method="POST">
+        <form action="{{url_for('add') }}" method="POST">
           <input type="text" name = "todoitem">
-          <input type="submit">
+          <input type="submit" value = "Add New Item">
         </form>
       </div>
-      <ul>
-        <li><input type="checkbox">Event 1</li>
-        <li><input type="checkbox">Event 2</li>
-        <li><input type="checkbox">Event 3</li>
-      </ul>
+      <form action="{{ url_for('update') }}" method="Post">
+        <ul>
+          {% for todo in todos %}
+            <li style="font-size: 30pt"><input name="{{ todo.id }}" type="checkbox">{{ todo.text }}</li>
+          {% endfor %}
+        </ul>
+        <input type="submit" value="Update Items">
+      </form>
     </div>
 {% endblock %}
