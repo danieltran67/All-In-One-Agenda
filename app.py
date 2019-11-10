@@ -107,6 +107,13 @@ def add():
 
     return redirect(url_for('dashboard'))
 
+@app.route('/update', methods=['POST'])
+def update(id):
+    todo = Todo.query.filter_by(id=id).first()
+    todo.complete = True
+    db.session.commit()
+    return redirect(url_for('dashboard'))
+
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
     form = ForgotPasswordForm()
@@ -118,7 +125,9 @@ def forgotpassword():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html', name=current_user.username)
+    todos = Todo.query.filter_by(complete=False).all()
+
+    return render_template('dashboard.html', name=current_user.username, todos=todos)
 
 
 @app.route('/addevents')
