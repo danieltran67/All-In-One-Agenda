@@ -1,8 +1,0 @@
-Steps to install Google Calendar API:
-
-1) cd into project folder from the command line
-2)Type the following
-	pip install virtualenv
-	virtualenv <Name the Environment>
-	<Name>\Scripts\activate
-	<Name>\Scripts\pip.exe install google-api-python-client
