@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
@@ -13,7 +13,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
-dbCheck = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
@@ -25,11 +24,21 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
     answer = db.Column(db.String(30))
+    Todolist = db.relationship('Todo', backref='author', lazy='dynamic')
 
-class User(dbCheck.Model):
-    id = dbCheck.Column(dbCheck.Integer, primary_key=True)
-    text =  dbCheck.Column(dbCheck.String(200))
-    complete = dbCheck.Column(dbCheck.Boolean)
+    def __repr__(self):
+        return f'<user: {self.username}>'
+
+class Todo(db.Model):
+     id = db.Column(db.Integer, primary_key=True)
+     text =  db.Column(db.String(200))
+     complete = db.Column(db.Boolean)
+     user_id =  db.Column(db.Integer, db.ForeignKey('user.id'))
+
+     def __repr__(self):
+         return f'<post: {self.text}>'
+
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -92,7 +101,11 @@ def signup():
 
 @app.route('/add', methods=['POST'])
 def add():
-    return '<h1>{}</h1>'.format(request.form['todoitem'])
+    todo = Todo(text=request.form['todoitem'],complete=False)
+    db.session.add(todo)
+    db.session.commit()
+
+    return redirect(url_for('dashboard'))
 
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
