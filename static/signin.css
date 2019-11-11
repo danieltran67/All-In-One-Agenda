@@ -68,7 +68,7 @@ body {
   border-top-right-radius: 0;
 }
 
-.button{
+.buttonPress{
   padding: 10px 30px;
   font-size: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  display: inline-block;
@@ -76,13 +76,17 @@ body {
   border-radius: 20px;
   box-shadow: 0 10px #999;
   background-color: #7eaed3;
+  outline: none;
+  cursor: pointer;
 }
 
-.button:hover {
+.buttonPress:hover {
   background-color: #8fadc7;
+  outline: none;
+  cursor: pointer
 }
 
-.button:active {
+.buttonPress:active {
   background-color: #8fadc7;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
