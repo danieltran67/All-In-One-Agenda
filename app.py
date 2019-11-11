@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, Flask
+from flask import render_template, request, redirect, url_for, flash, Flask
 from flask_login import current_user, login_required, login_user, logout_user
 from flask import Flask
 from flask_wtf import FlaskForm
@@ -71,6 +71,10 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
+    Todolist = db.relationship('Todo', backref='author', lazy='dynamic')
+
+    def __repr__(self):
+        return f'<user: {self.username}>'
 
     # Creates a id token that expires in 30 minutes
     def get_reset_token(self, expires_sec=1800):
@@ -87,6 +91,14 @@ class User(UserMixin, db.Model):
             return None
         return User.query.get(user_id)
 
+class Todo(db.Model):
+     id = db.Column(db.Integer, primary_key=True)
+     text =  db.Column(db.String(200))
+     complete = db.Column(db.Boolean)
+     user_id =  db.Column(db.Integer, db.ForeignKey('user.id'))
+
+     def __repr__(self):
+         return f'<post: {self.text}>'
 
 @app.route('/')
 def index():
@@ -167,10 +179,29 @@ def reset_token(token):
     return render_template('reset_token.html', title='Reset Password', form=form)
 
 
+@app.route('/add', methods=['POST'])
+def add():
+    todo = Todo(text=request.form['todoitem'], complete=False)
+    db.session.add(todo)
+    db.session.commit()
+
+    return redirect(url_for('dashboard'))
+
+@app.route('/complete/<id>')
+def complete(id):
+
+    todo = Todo.query.filter_by(id=int(id)).first()
+    todo.complete = True
+    db.session.commit()
+    
+    return redirect(url_for('dashboard'))
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html', name=current_user.username)
+    todos = Todo.query.filter_by(complete=False).all()
+
+    return render_template('dashboard.html', name=current_user.username, todos = todos)
 
 
 @app.route('/addevents')
