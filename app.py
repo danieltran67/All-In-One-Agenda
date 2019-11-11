@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, flash, Flask
+from flask import render_template, redirect, url_for, flash, Flask, request
 from flask_login import current_user, login_required, login_user, logout_user
 from flask import Flask
 from flask_wtf import FlaskForm
@@ -40,9 +40,9 @@ class LoginForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    email = StringField('email', validators=[InputRequired(), Email(message="Choose a valid email"), Length(max=50)])
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=4, max=80)])
+    email = StringField('Email', validators=[InputRequired(), Email(message="Choose a valid email"), Length(max=50)])
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=4, max=80)])
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
@@ -91,14 +91,16 @@ class User(UserMixin, db.Model):
             return None
         return User.query.get(user_id)
 
-class Todo(db.Model):
-     id = db.Column(db.Integer, primary_key=True)
-     text =  db.Column(db.String(200))
-     complete = db.Column(db.Boolean)
-     user_id =  db.Column(db.Integer, db.ForeignKey('user.id'))
 
-     def __repr__(self):
-         return f'<post: {self.text}>'
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(200))
+    complete = db.Column(db.Boolean)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return f'<post: {self.text}>'
+
 
 @app.route('/')
 def index():
@@ -187,14 +189,15 @@ def add():
 
     return redirect(url_for('dashboard'))
 
+
 @app.route('/complete/<id>')
 def complete(id):
-
     todo = Todo.query.filter_by(id=int(id)).first()
     todo.complete = True
     db.session.commit()
-    
+
     return redirect(url_for('dashboard'))
+
 
 @app.route('/dashboard')
 @login_required
