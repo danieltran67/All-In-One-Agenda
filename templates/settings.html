@@ -1,50 +1,37 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Settings</title>
-    <link rel="stylesheet" href="{{url_for('.static', filename='settings.css')}}">
+{% block title %}
+Add Events
+{% endblock %}
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-<body style="background-color:lightblue;">
-<div class="container">
-  <div class="jumbotron">
-    <h1>Add Event</h1>
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
 
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right navbar-font">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('addevents') }}">Add Events</a></li>
+            <li class="active"><a href="">Settings</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        Name of Event<br>
-        <input type="text" name="event_name"><br>
-        Time<br>
-        <input type="month" name="time">
-        <br> Set Alarm
-    <input type="checkbox" class="btn btn-outline-warning" name="Visited" value="Visited"><br>
-        Details<br>
-        <input type="text" id="myText" value="Some text...">
-        <br><br>
-        <input type="submit" class="btn btn-light" value="Submit">
-
-        <a href="https://www.google.com/"> <button type="button" class="btn btn-outline-danger">Edit Event</button></a><br>
-        <br><br>
-       <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Events</a>
-  <div id="demo" class="collapse">
-     Username<br>
-        <input type="text" name="event_name">
-    <br><br><input type="submit" class="btn btn-light" value="Submit">
-  </div>
-  </div>
-
-
-
-
-  </div>
-</div>
-</body>
-</html>
+    Insert Code Here
+{% endblock %}
