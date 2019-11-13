@@ -11,6 +11,7 @@ Login
 {% endblock %}
 
 {% block content %}
+    <!--NAVBAR CODE-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -31,7 +32,9 @@ Login
         </div>
       </div>
     </nav>
+    <!--NAVBAR CODE-->
 
+    <!--LOGIN CODE-->
     <div class="container">
       <form class="form-signin" method="POST" action="">
         <h2 class="form-signin-heading">Sign In</h2>
@@ -41,8 +44,52 @@ Login
             {{ wtf.form_field(form.remember) }}
             <button class="buttonPress" type="submit">Log In</button>
       </form>
-        <div class="container" style="text-align: center">
-            <span class="psw"><a href="{{ url_for('reset_request') }}">Forgot Password?</a></span>
+    <!--LOGIN CODE-->
+
+    <!--POPUP FORGOT PASSWORD CODE-->
+        <!--
+    <div class="containerForgotPassword" style="text-align: center">
+        <button type="button" class="btn btn-outline-info" onclick="document.getElementById('forgotpasswordpopup').style.display='block'" style="width:auto;">Forgot Password?</button>
+        <div id="forgotpasswordpopup" class="modal">
+            <form class="modalBox" action="">
+                <div class="container">
+                    <h1>Forgot Password?</h1>
+                    <p><em>Don't worry, we forget passwords all the time too!</em></p>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email Here" name="email" style="width: 300px" required>
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('forgotpasswordpopup').style.display='none'" class="buttonCancel">
+                            Cancel
+                        </button>
+                        <button type="submit" class="buttonConfirm">Confirm</button>
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById('forgotpasswordpopup');
+
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+        )
+    </script>
+        -->
+    <!--POPUP FORGOT PASSWORD CODE-->
+
+        <!--OLD FORGOT PASSWORD CODE-->
+        <div class="container" style="text-align: center">
+            <span class="psw">
+                <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
+            </span>
+        </div>
+        <!--OLD FORGOT PASSWORD CODE-->
+
+    <div>
+    </div>
     </div>
 {% endblock %}
