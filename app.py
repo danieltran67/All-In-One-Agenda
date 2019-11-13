@@ -213,10 +213,10 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/settings')
+@app.route('/editevents')
 @login_required
-def settings():
-    return render_template('settings.html')
+def editevents():
+    return render_template('editevents.html')
 
 
 @app.route('/logout')
