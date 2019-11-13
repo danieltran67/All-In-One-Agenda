@@ -8,19 +8,21 @@
 {{super()}}
 <link rel="stylesheet" href="{{url_for('.static', filename='addevents.css')}}">
 {% endblock %}
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
 
 <body>
 {% block content %}
+    <!--NAVBAR CODE-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -36,55 +38,58 @@
           <ul class="nav navbar-nav navbar-right navbar-font">
             <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
             <li class="active"><a href="">Add Events</a></li>
-            <li><a href="{{ url_for('settings') }}">Settings</a></li>
+            <li><a href="{{ url_for('editevents') }}">Edit Events</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!--NAVBAR CODE-->
 
-<div class="container">
-    <div class="jumbotron">
-        <form>
-        <div class="row">
-            <h1>Add Event</h1>
+    <!--ADD EVENT CODE-->
+    <div class="container">
+        <div class="jumbotron">
+            <form>
+            <div class="row">
+                <h1>Add Event</h1>
 
-            <div class="textline">
-                <label for="eventname">Event Name</label>
+                <div class="textline">
+                    <label for="eventname">Event Name</label>
+                </div>
+                <div class="boxline">
+                    <input type="text" id="eventname" name="eventname" placeholder="Event Name...">
+                </div>
             </div>
-            <div class="boxline">
-                <input type="text" id="eventname" name="eventname" placeholder="Event Name...">
+            <div class="row">
+                <div class="textline">
+                    <label for="settime">Set Time</label>
+                </div>
+                <div class="boxline">
+                    <input type="date" id="settime" name="settime">
+                </div>
             </div>
+            <div class="row">
+                <div class="textline">
+                    <label for="description">Description</label>
+                </div>
+                <div class="boxline">
+                    <textarea id="description" name="descripiton" placeholder="Enter description here..." style="height: 150px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="buttonArrows" style="vertical-align:middle"><span>Submit</span></button>
+            </div>
+            <br>
+            <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Event</a>
+                <div id="demo" class="collapse">
+                    <h3>Enter username:</h3>
+                    <input type="text" name="username" style="width: 300px" placeholder="Share event with...">
+                    <button type="submit" class="buttonArrows" style="vertical-align:middle"><span>Share</span></button>
+                </div>
+        </form>
         </div>
-        <div class="row">
-            <div class="textline">
-                <label for="settime">Set Time</label>
-            </div>
-            <div class="boxline">
-                <input type="date" id="settime" name="settime">
-            </div>
-        </div>
-        <div class="row">
-            <div class="textline">
-                <label for="description">Description</label>
-            </div>
-            <div class="boxline">
-                <textarea id="description" name="descripiton" placeholder="Enter description here..." style="height: 150px"></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <button type="submit" class="buttonArrows" style="vertical-align:middle"><span>Submit</span></button>
-        </div>
-        <br>
-        <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Event</a>
-            <div id="demo" class="collapse">
-                <h3>Enter username:</h3>
-                <input type="text" name="username" style="width: 300px" placeholder="Share event with...">
-                <button type="submit" class="buttonArrows" style="vertical-align:middle"><span>Share</span></button>
-            </div>
-    </form>
     </div>
-</div>
+    <!--ADD EVENT CODE-->
 
 </body>
 {% endblock %}
