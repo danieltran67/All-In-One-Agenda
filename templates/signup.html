@@ -11,6 +11,7 @@ Sign Up
 {% endblock %}
 
 {% block content %}
+    <!--NAVBAR CODE-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -31,17 +32,18 @@ Sign Up
         </div>
       </div>
     </nav>
+    <!--NAVBAR CODE-->
 
-<div class="container">
-
-  <form class="form-signin" method="POST" action="/signup">
-    <h2 class="form-signin-heading">Sign Up</h2>
-        {{ form.hidden_tag() }}
-        {{ wtf.form_field(form.username) }}
-        {{ wtf.form_field(form.email) }}
-        {{ wtf.form_field(form.password) }}
-    <button class="buttonPress" type="submit">Sign Up</button>
-  </form>
-
+    <!--SIGNUP CODE-->
+    <div class="container">
+      <form class="form-signin" method="POST" action="/signup">
+        <h2 class="form-signin-heading">Sign Up</h2>
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.password) }}
+        <button class="buttonPress" type="submit">Sign Up</button>
+      </form>
+    <!--SIGNUP CODE-->
 </div>
 {% endblock %}
