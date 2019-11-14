@@ -29,7 +29,7 @@ h1{
 .buttonArrows{
   display: inline-block;
   border-radius: 15px;
-  background-color: #45b3e0;
+  background-color: gray;
   border: none;
   outline: none;
   text-align: center;
@@ -40,6 +40,10 @@ h1{
   transition: all 0.5s;
   cursor: pointer;
   margin: 3px;
+}
+
+.buttonArrows:hover {
+    background-color: #45b3e0;
 }
 
 .buttonArrows span{
@@ -122,4 +126,63 @@ input[type=submit]:hover {
         width: 100%;
         margin-top: 0;
     }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 39px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: #CD5C5C;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #CD5C5C;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
