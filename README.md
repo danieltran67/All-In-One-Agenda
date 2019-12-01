@@ -1,4 +1,4 @@
-How to run the code
+How to run the code(WORKS ON PYCHARM via FLASK)
 
 1) Make sure to create database
   Go on terminal and type: python 
