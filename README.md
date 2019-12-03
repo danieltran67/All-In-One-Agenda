@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/danieltran67/All-In-One-Agenda.svg?branch=master)](https://travis-ci.org/danieltran67/All-In-One-Agenda)
 
 **Heroku Link:**https://shrouded-headland-81754.herokuapp.com/
+------------------------------------------------------------------------------------------------------------
 
 **RECOMMEND TO READ VIA RAW**
 How to run the code(WORKS ON PYCHARM via FLASK)
@@ -40,7 +41,7 @@ Features(All of Verification found in app.py)
   
   
 FAQ
-------------------------------
+------------------------------------------------------------------------------------------
 1) I can't run the database such as db.sqlite3. I've tried to pip install sqlite3. 
   Answer: You will need to install sqlite online. 
           Download this zip file, then extract: https://www.sqlite.org/2019/sqlite-tools-win32-x86-3300100.zip
