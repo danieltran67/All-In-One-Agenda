@@ -6,10 +6,11 @@ All-in-One Agenda
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
 {% endblock %}
 
 {% block content %}
+    <!--NAVBAR CODE-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -19,24 +20,50 @@ All-in-One Agenda
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">All-In-One Agenda</a>
+          <a class="navbar-brand navbar-font">All-In-One Agenda</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+          <ul class="nav navbar-nav navbar-font">
+            <li class="active"><a href="">Home</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
+    <!--NAVBAR CODE-->
+
+    <!--ABOUT CODE-->
+    <div class="welcome-page">
+        <h1>Welcome to <strong>your</strong> All-In-One Agenda</h1>
+        <p class="lead"><em>"Simple Simply Simplified"</em></p>
+    </div>
 
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="welcome-page-leftside">
+                    <h4><strong>About</strong></h4>
+                    <p>The All-In-One Agenda is a program built to simplify and ease your life. This website is a scheduling/calendar
+                    program that lets you create tasks, add events, set alarms, schedule events, and plan your life out. Our goal
+                    was to simplify your life, and what better way to simplify your life than to have a simple, easy-to-use
+                    web application. Our application's goal was to be simplify life and fundamentally be simple for everyone.</p>
 
-      <div class="starter-template">
-        <h1>Welcome to All-In-One Agenda</h1>
-        <p class="lead">Edit this when you have the time<br> Make sure to change the Color, Bootstrap, and Text to avoid plagarism -DANIEL</p>
-      </div>
+                    <br>
 
+                    <strong>About Us</strong>
+                    <p>This website was made by Team 11 of Professor Rojas' class (Section 50075). The team members consist of
+                    Saeed Baqalaql, Antonio Magana, Anthony Nguyen, and Daniel Tran.</p>
+                </div>
+            </div>
+            <!--STILL TRYING TO FIGURE OUT WHY THIS APPEARS ON LEFT SIDE
+            <div class="col">
+                <div class="welcome-page-rightside">
+                    <h3>What can the All-In-One Agenda do for you?</h3>
+                </div>
+            </div>
+            -->
+        </div>
     </div>
+    <!--ABOUT CODE-->
 {% endblock %}

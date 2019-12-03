@@ -11,22 +11,50 @@ Login
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-
-      <form class="form-signin" method="POST" action="/login">
-        <h2 class="form-signin-heading">Sign In</h2>
-        {{ form.hidden_tag() }}
-        {{ wtf.form_field(form.username) }}
-        {{ wtf.form_field(form.password) }}
-        {{ wtf.form_field(form.remember) }}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
-
-        <div class="container" style="background-color:#f1f1f1">
-            <span class="psw"> <a href="/forgotpassword">Forgot Password?</a></span>
+    <!--NAVBAR CODE-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">All-In-One Agenda</a>
         </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-font">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="active"><a href="">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--NAVBAR CODE-->
 
+    <!--LOGIN CODE-->
+    <div class="container">
+      <form class="form-signin" method="POST" action="">
+        <h2 class="form-signin-heading">Sign In</h2>
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.remember) }}
+            <button class="buttonPress" type="submit">Log In</button>
       </form>
+    <!--LOGIN CODE-->
 
-    </div> <!-- /container -->
+        <!--OLD FORGOT PASSWORD CODE-->
+        <div class="container" style="text-align: center">
+            <span class="psw">
+                <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
+            </span>
+        </div>
+        <!--OLD FORGOT PASSWORD CODE-->
+
+    <div>
+    </div>
+    </div>
 {% endblock %}
