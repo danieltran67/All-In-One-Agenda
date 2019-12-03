@@ -1,0 +1,156 @@
+body {
+  padding-top: 50px;
+  background-color: #edcca9;
+}
+.welcome-page {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.welcome-page-rightside{
+  text-align: right;
+  width: 400px;
+}
+
+.welcome-page-leftside{
+  text-align: left;
+  width: 400px;
+}
+
+.navbar {
+  border: 0;
+  background-color: #365577 !important;
+}
+
+.navbar-font{
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.buttonPress{
+  padding: 10px 30px;
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  display: inline-block;
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px #999;
+  background-color: #7eaed3;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttonPress:hover {
+  background-color: #8fadc7;
+  outline: none;
+  cursor: pointer
+}
+
+.buttonPress:active {
+  background-color: #8fadc7;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  outline: none;
+}
+
+button{
+  background-color: #56c6ac;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.buttonCancel {
+  padding: 14px 20px;
+  background-color: #742739;
+}
+
+.buttonCancel, .buttonConfirm {
+  float: left;
+  width: 50%;
+}
+
+.containerForgotPassword{
+  padding: 16px;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+.modalBox{
+  background-color: #dcc6ae;
+  margin: 5% auto 15% auto;
+  border: 1px solid #231f1a;
+  width: 80%;
+  border-radius: 15px;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 300px){
+  .buttonCancel, .buttonConfirm{
+    width: 100%;
+  }
+}

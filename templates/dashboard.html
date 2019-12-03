@@ -1,0 +1,66 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block content %}
+    <!--NAVBAR CODE-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right navbar-font">
+            <li class="active"><a href="">Dashboard</a></li>
+            <li><a href="{{ url_for('addevents') }}">Add Events</a></li>
+            <li><a href="{{ url_for('editevents') }}">Edit Events</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--NAVBAR CODE-->
+
+    <!--TO DO LIST CODE-->
+    <div>
+      <h1>Todo List</h1>
+      <div>Add a new item:
+        <form action="{{ url_for('add') }}" method="POST">
+          <input type="text" name = "todoitem">
+          <input type="submit" value = "Add New Item">
+        </form>
+      </div>
+        <ul>
+          {% for todo in todos %}
+            <li style="font-size: 20pt">{{ todo.text }} <a class="btn btn-primary" href="{{ url_for('complete', id=todo.id) }}" role="button">Mark As Complete</a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    <!--TO DO LIST CODE-->
+
+    <!--CALENDAR CODE-->
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=ZGFuaWVsdHJhbjE1MEBnbWFpbC5jb20&amp;src=ZmFtaWx5MTA4NTc1MDQ1Mzg4MjA3NDgzOTdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23336699&amp;color=%235A9A08&amp;color=%23336699" style="border-width:0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
+    <!--CALENDAR CODE-->
+{% endblock %}
