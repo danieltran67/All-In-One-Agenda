@@ -5,20 +5,18 @@
 ------------------------------------------------------------------------------------------------------------
 
 **RECOMMEND TO READ VIA RAW**
-How to run the code(WORKS ON PYCHARM via FLASK)
+**How to run the code(WORKS ON PYCHARM via FLASK)**
 
 1) Make sure to create database
-  Go on terminal and type: python 
-  >> from app import db 
-  >>db.create_all()
-  
-3) Make sure to install all necessary packages
+  Go on terminal and type: python > from app import db > db.create_all()
+    
+2) Make sure to install all necessary packages
   a) Can check which one is missing via requirements.txt
   b)pip install [NAME]
   
- 4)If there is any trouble, please post on Git or check FAQ below.
+ 3)If there is any trouble, please post on Git or check FAQ below.
  
- 
+-----------------------------------------------------------------------------------------------------------------
 **Features (All of Verification found in app.py)**
 1) Sign Up
   Asks user to register their username, email, and password via class RegistrationForm(FlaskForm) in app.py. It will save the data in an sqlite file named 'db.sqlite'. 
@@ -38,9 +36,16 @@ How to run the code(WORKS ON PYCHARM via FLASK)
 8) Google Calendar API
     Once logged in, will be able to see Google Calendar and be able to edit if logged in to "danieltran150@gmail.com". There is a issue where it will only show one user(the one who implemented it) because the API will not work otherwise and implementing oAuth2 was too difficult considering the time constraint and complexity to complete it . 
   
-  
-  
-FAQ
+--------------------------------------------------------------------------------------------  
+
+**File Location of Test Cases and How to Run**
+  File location is located at the base directory in master branch.
+  File is named, **test_app.py**
+  Run it by going to terminal and typing the command, **pytest**
+  If you only want pass/fail results and don't want to see warnings, type the command, **pytest -p no:warnings**
+
+
+**FAQ**
 ------------------------------------------------------------------------------------------
 1) I can't run the database such as db.sqlite3. I've tried to pip install sqlite3. 
   Answer: You will need to install sqlite online. 
