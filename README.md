@@ -19,7 +19,7 @@ How to run the code(WORKS ON PYCHARM via FLASK)
  4)If there is any trouble, please post on Git or check FAQ below.
  
  
-Features(All of Verification found in app.py)
+**Features (All of Verification found in app.py)**
 1) Sign Up
   Asks user to register their username, email, and password via class RegistrationForm(FlaskForm) in app.py. It will save the data in an sqlite file named 'db.sqlite'. 
 2) Login
