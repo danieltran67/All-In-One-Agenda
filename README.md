@@ -1,3 +1,6 @@
+
+
+**RECOMMEND TO READ VIA RAW**
 How to run the code(WORKS ON PYCHARM via FLASK)
 
 1) Make sure to create database
