@@ -115,6 +115,7 @@ def login():
         if user:
             if form.password.data == user.password:
                 login_user(user, remember=form.remember.data)
+                flash('You were logged in')
                 return redirect(url_for('dashboard'))
         flash('Incorrect username/password. Try again.')
     return render_template('login.html', form=form)
@@ -228,4 +229,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
