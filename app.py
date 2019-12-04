@@ -115,7 +115,6 @@ def login():
         if user:
             if form.password.data == user.password:
                 login_user(user, remember=form.remember.data)
-                flash('You were logged in')
                 return redirect(url_for('dashboard'))
         flash('Incorrect username/password. Try again.')
     return render_template('login.html', form=form)
@@ -184,11 +183,11 @@ def reset_token(token):
 
 @app.route('/add', methods=['POST'])
 def add():
-    todo = Todo(text=request.form['todoitem'], complete=False)
+    todo = Todo(text=request.form['reminder'], complete=False)
     db.session.add(todo)
     db.session.commit()
 
-    return redirect(url_for('dashboard'))
+    return redirect(url_for('reminders'))
 
 
 @app.route('/complete/<id>')
@@ -197,15 +196,21 @@ def complete(id):
     todo.complete = True
     db.session.commit()
 
-    return redirect(url_for('dashboard'))
+    return redirect(url_for('reminders'))
+
+
+@app.route('/delete<id>')
+def delete(id):
+    todelete = Todo.query.filter_by(id=int(id)).delete()
+    db.session.commit()
+
+    return redirect(url_for('reminders'))
 
 
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    todos = Todo.query.filter_by(complete=False).all()
-
-    return render_template('dashboard.html', name=current_user.username, todos = todos)
+    return render_template('dashboard.html')
 
 
 @app.route('/addevents')
@@ -214,10 +219,20 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/editevents')
+@app.route('/reminders')
 @login_required
-def editevents():
-    return render_template('editevents.html')
+def reminders():
+    incomplete = Todo.query.filter_by(complete=False).all()
+    completed = Todo.query.filter_by(complete=True).all()
+
+    return render_template('reminders.html', name=current_user.username, incomplete=incomplete,
+                           completed=completed)
+
+
+@app.route('/resources')
+@login_required
+def resources():
+    return render_template('resources.html')
 
 
 @app.route('/logout')
@@ -229,4 +244,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
