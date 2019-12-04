@@ -1,0 +1,39 @@
+body {
+  padding-top: 50px;
+  background-color: #f5f2d0;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+.navbar {
+  border: 0;
+  background-color: #365577 !important;
+}
+
+.navbar-font {
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.jumbotron{
+    background-image: url("https://i.pinimg.com/originals/e1/ec/7e/e1ec7eec65734e51e6d35111c97fe7b7.jpg");
+    background-size: cover;
+}
+
+.containerReminders{
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 20px;
+  margin: 15px auto;
+  width: 500px;
+  text-align: center;
+  background-color: navajowhite;
+}
