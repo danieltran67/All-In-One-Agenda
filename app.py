@@ -223,10 +223,10 @@ def addevents():
 @login_required
 def reminders():
     incomplete = Todo.query.filter_by(complete=False).all()
-    completed = Todo.query.filter_by(complete=True).all()
+    complete = Todo.query.filter_by(complete=True).all()
 
     return render_template('reminders.html', name=current_user.username, incomplete=incomplete,
-                           completed=completed)
+                           complete=complete)
 
 
 @app.route('/resources')
