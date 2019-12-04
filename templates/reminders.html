@@ -2,20 +2,22 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}
-Add Events
+Edit Events
 {% endblock %}
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='reminders.css')}}">
 {% endblock %}
 
 {% block content %}
+    <!--NAVBAR CODE-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -26,12 +28,32 @@ Add Events
           <ul class="nav navbar-nav navbar-right navbar-font">
             <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url_for('addevents') }}">Add Events</a></li>
-            <li class="active"><a href="">Settings</a></li>
+            <li class="active"><a href="">Reminders</a></li>
+            <li><a href="{{ url_for('resources') }}">Resources</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!--NAVBAR CODE-->
 
-    Insert Code Here
+    <!--REMINDERS CODE-->
+    <div class="jumbotron">
+        <div class="containerReminders">
+            <h1>Reminders</h1>
+            <div>
+                Add a reminder:
+                <form action="{{ url_for('add') }}" method="POST">
+                    <input type="text" name="reminder" placeholder="Remind me to...">
+                    <button type="submit" class="btn btn-success"><span>Add</span></button>
+                </form>
+            </div>
+            <ul>
+                {% for todo in todos %}
+                    <li style="font-size: 20pt">{{ todo.text }} <a class="btn btn-danger" href="{{ url_for('complete', id=todo.id) }}" role="button">Mark As Complete</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!--REMINDERS CODE-->
 {% endblock %}
