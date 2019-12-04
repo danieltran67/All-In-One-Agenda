@@ -30,9 +30,20 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
 bootstrap = Bootstrap(app)
+"""
+app.py
+====================================
+The core module of my example project
+"""
 
 
 class LoginForm(FlaskForm):
+    """
+        Collects username and password input to submit. Gives an option to keep user logged in.
+        ----------
+        FlaskForm
+            A form for entering username and password
+        """
     username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
     password = PasswordField('Password', validators=[InputRequired()])
     remember = BooleanField('Remember me')
@@ -205,7 +216,7 @@ def complete(id):
 def dashboard():
     todos = Todo.query.filter_by(complete=False).all()
 
-    return render_template('dashboard.html', name=current_user.username, todos = todos)
+    return render_template('dashboard.html', name=current_user.username, todos=todos)
 
 
 @app.route('/addevents')
