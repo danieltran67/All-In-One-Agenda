@@ -22,6 +22,11 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.container{
+  justify-content: center;
+  border: 1px solid #365577;
+}
+
 /*
 .sidebar {
   display: none;
@@ -69,3 +74,28 @@ body {
   margin-top: 0;
 }
 */
+
+.buttonPress{
+  padding: 10px 30px;
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  display: inline-block;
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px #999;
+  background-color: #7eaed3;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttonPress:hover {
+  background-color: #8fadc7;
+  outline: none;
+  cursor: pointer
+}
+
+.buttonPress:active {
+  background-color: #8fadc7;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  outline: none;
+}
