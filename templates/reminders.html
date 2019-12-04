@@ -48,11 +48,20 @@ Edit Events
                     <button type="submit" class="btn btn-success"><span>Add</span></button>
                 </form>
             </div>
-            <ul>
-                {% for todo in todos %}
-                    <li style="font-size: 20pt">{{ todo.text }} <a class="btn btn-danger" href="{{ url_for('complete', id=todo.id) }}" role="button">Mark As Complete</a></li>
-                {% endfor %}
-            </ul>
+            <div>
+              <h2>Incomplete Items</h2>
+                <ul>
+                  {% for todo in incomplete %}
+                    <li style="font-size: 20pt">{{ todo.text }} <a class="btn btn-primary" href="{{ url_for('complete', id=todo.id) }}" role="button">Mark As Complete</a></li>
+                  {% endfor %}    
+                </ul>
+              <h2>Completed Items</h2>
+                <ul>
+                  {% for todo in complete %}
+                    <li style="font-size: 20pt">{{ todo.text }} <a class="btn btn-primary" href="{{ url_for('delete', id=todo.id) }}" role="button">Delete From Complete</a></li>
+                  {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
     <!--REMINDERS CODE-->
