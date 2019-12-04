@@ -1,0 +1,121 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Edit Events
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='resources.css')}}">
+{% endblock %}
+
+{% block content %}
+    <!--NAVBAR CODE-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right navbar-font">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('addevents') }}">Add Events</a></li>
+            <li><a href="{{ url_for('reminders') }}">Reminders</a></li>
+            <li class="active"><a href="">Resources</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--NAVBAR CODE-->
+
+    <!--RESOURCES CODE-->
+    <div class="jumbotron">
+        <div class="container-fluid" style="background-color: whitesmoke; text-align: center;">
+            <h1>
+                <u>Helpful Resources</u>
+            </h1>
+            <h4>
+                <i>
+                    This website was made by students for students. As such, here are some helpful resources for students!
+                    <br>
+                    (We do not own any of these resources. All rights belong to their respective owners.)
+                </i>
+            </h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <img class="card-img-top" src="https://yorkandchapel.com/wp-content/uploads/2016/12/chegg-logo@2x.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Chegg</strong></h5>
+                <p class="card-text"><em>Use Chegg for homework help as well as online tutoring!</em></p>
+                <a href="https://www.chegg.com/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="https://i.pinimg.com/564x/ef/2d/8a/ef2d8aa2926f5015285988f06bd66f6e.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Symbolab</strong></h5>
+                <p class="card-text"><em>Use Symbolab as a one-stop-shop calculator for your math class!</em></p>
+                <a href="https://www.symbolab.com/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="https://cdn.dribbble.com/users/989382/screenshots/6583296/screenflow.gif" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Slader</strong></h5>
+                <p class="card-text"><em>Use Slader for textbook homework help!</em></p>
+                <a href="https://www.slader.com/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="https://jessehouwing.net/content/images/size/w2000/2018/07/stackoverflow-1.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Stack Overflow</strong></h5>
+                <p class="card-text"><em>Use Stack Overflow for coding help!</em></p>
+                <a href="https://stackoverflow.com/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="https://umaine.edu/studentaccessibility/wp-content/uploads/sites/194/2017/10/Quizlet_small_logo.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Quizlet</strong></h5>
+                <p class="card-text"><em>Use Quizlet for exam studying!</em></p>
+                <a href="https://quizlet.com/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="https://www.coursehero.com/assets/img/CH_Logo_FB.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Course Hero</strong></h5>
+                <p class="card-text"><em>Use Course Hero for more homework help and studying!</em></p>
+                <a href="https://www.coursehero.com/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="http://www.sjsu.edu/communications/pics/identity/043014_Primary_Mark_WEB_01.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>SJSU</strong></h5>
+                <p class="card-text"><em>SJSU provides many tutoring sessions, online resources, and assistance for their students!</em></p>
+                <a href="http://www.sjsu.edu/" class="btn btn-info" target="_blank">Go To Site</a>
+            </div>
+        </div>
+    </div>
+    <!--RESOURCES CODE-->
+{% endblock %}
