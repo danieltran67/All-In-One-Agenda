@@ -2,19 +2,17 @@ body {
   padding-top: 50px;
   background-color: #edcca9;
 }
-.welcome-page {
+.welcome-page-header {
   padding: 40px 15px;
   text-align: center;
 }
 
-.welcome-page-rightside{
-  text-align: right;
-  width: 400px;
-}
-
-.welcome-page-leftside{
+.welcome-page {
   text-align: left;
   width: 400px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  background-color: antiquewhite;
 }
 
 .navbar {
@@ -153,4 +151,14 @@ button:hover {
   .buttonCancel, .buttonConfirm{
     width: 100%;
   }
+}
+
+.containerWelcome{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-around;
+  margin: 10px auto;
 }
