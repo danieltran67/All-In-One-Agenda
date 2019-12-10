@@ -7,6 +7,17 @@ https://shrouded-headland-81754.herokuapp.com/
 
 
 ------------------------------------------------------------------------------------------
+
+**Location of Test Case and How to Run**
+
+File path: All-In-One-Agenda/test_app.py.
+In terminal, type the command, **"pytest"**. If you do not want to see warnings, type, **"pytest -p no:warnings"**.
+
+-------------------------------------------------------------------------------------------
+**Location off Sphinx file**
+
+File path: All-In-One-Agenda/docs/build/html/index.html
+
 **Features**
 
 
