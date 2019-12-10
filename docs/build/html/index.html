@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to project’s documentation! &#8212; project  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to Install" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-project-s-documentation">
+<h1>Welcome to project’s documentation!<a class="headerlink" href="#welcome-to-project-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#faq"><strong>FAQ</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="screenshots">
+<h1>Screenshots<a class="headerlink" href="#screenshots" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Home Page</dt><dd><p>Has a short summary of the purpose of the website.</p>
+</dd>
+</dl>
+<img alt="_images/index.png" src="_images/index.png" />
+<dl class="simple">
+<dt>Log In Page</dt><dd><p>Requires a username and password. Verifies it by checking the sqlite database called User.
+If it passes, user is redirected to the dashboard page.
+Includes a link if you forgot your password.</p>
+</dd>
+</dl>
+<img alt="_images/login.png" src="_images/login.png" />
+<dl class="simple">
+<dt>Sign Up Page</dt><dd><p>Requests user for an email, username, and password. Stores it in database if email is not yet taken.</p>
+</dd>
+</dl>
+<img alt="_images/sign_up.png" src="_images/sign_up.png" />
+<dl>
+<dt>Reset Request Page</dt><dd><blockquote>
+<div><p>A form that asks for a valid email.This page opens when you click the link
+“Forgot Password” located in the login page.
+If valid, sends the email via yagmail a token link. The token characters are randomly generated and expires in</p>
+</div></blockquote>
+<p>30 minutes due to the functions in models.py.
+If invalid, print invalid message and prevents code from sending a request token.</p>
+</dd>
+</dl>
+<img alt="_images/reset_pw.png" src="_images/reset_pw.png" />
+<p>This sends a token link to your email. The token expires in 30 minutes and is randomly
+generated.
+.. image:: email.png</p>
+<dl>
+<dt>Reset Password Page</dt><dd><blockquote>
+<div><p>A form that changes the password. Link can only be accessed by having a non-expired token link.</p>
+</div></blockquote>
+<p>User enters a new string (password) and submits. The new password then replaces
+the old password in the database.</p>
+</dd>
+</dl>
+<img alt="_images/final_reset.png" src="_images/final_reset.png" />
+<dl class="simple">
+<dt>Dashboard Page</dt><dd><p>Shows additional features such as Google Calendar, Add Events, etc.</p>
+</dd>
+</dl>
+<img alt="_images/dashboard.png" src="_images/dashboard.png" />
+<dl class="simple">
+<dt>Reminders Page</dt><dd><p>This is where the To Do List is located and the user can add/remove tasks.</p>
+</dd>
+</dl>
+<img alt="_images/reminders.png" src="_images/reminders.png" />
+<dl class="simple">
+<dt>Resource Page</dt><dd><p>Several useful links to increase productivity and a shortcut to popular sites.</p>
+</dd>
+</dl>
+<img alt="_images/resources.png" src="_images/resources.png" />
+<dl class="simple">
+<dt>Add Events Page</dt><dd><p>Adds Events to the calendar. User inputs title, time, set alarm, and decide if they want
+to share the event with another user.</p>
+</dd>
+</dl>
+<img alt="_images/addevents.png" src="_images/addevents.png" />
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">project</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="installation.html" title="next chapter">How to Install</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Daniel.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

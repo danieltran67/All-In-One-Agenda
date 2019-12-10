@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Functions &#8212; project  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How to Install" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-myapp.routes"></span><dl class="function">
+<dt id="myapp.routes.add">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a task to the To Do List.
+:return: Refreshes reminder page and adds a task to list.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.addevents">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">addevents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.addevents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends user to HTML page called “addevents.html”
+:return: Render template to addevents.html</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.complete">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">complete</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns the a to-do reminder from the To Do List as complete.
+:param id: The database table ID
+:return: Refreshes rhe dashboard and removes the text that matches the database ID in there.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.dashboard">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">dashboard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.dashboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a login to access. Goes to site where there is a Google Calendar, Resources, and more features.
+:return: Redirects to dashboard URL</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.delete">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes task in To Do list.
+:param id: The database table ID
+:return: Refreshes reminder.HTML and remove a task form the list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.editevents">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">editevents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.editevents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends user to HTML page called “editevents.html”
+:return: Render template to editevents.html</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.index">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>The homepage of the website. Gives a summary of the purpose of the website.
+:return: Goes to HTML file called “index.html”. This is the homepage before logging in.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.login">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goes to login page and requests for username and password.
+:return: If username and password is the same as the on in the database, redirect
+user to dashboard. Else, print invalid message.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.logout">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log user out if user is logged in.
+:return: Redirects user to index.html</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.reset_request">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">reset_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.reset_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goes to a site that requests for a valid email in order to send a token link.
+:return: Prints the message, “An email has been sent to reset your password” and sends a token link
+to the email inputted. Redirects user to login page after wards. Else, keeps them at same site.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.reset_token">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">reset_token</code><span class="sig-paren">(</span><em class="sig-param">token</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.reset_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goes to a secured site that set a new password for the corresponding email.
+User inputs a new password and once submitted, the old password is replaced and new password is in its place/
+:param token: The token link sent via email. Required in order to access the page
+:return: If token is wrong or expired, print invalid message and redirects user back to the site that requests for
+a valid email. Else, output is committed in database, a message saying “Your password updated!, and redirects user
+to homepage.”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.resources">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends user to HTML page named “resources”.
+:return: Redirects user to resource page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.send_reset_email">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">send_reset_email</code><span class="sig-paren">(</span><em class="sig-param">user</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.send_reset_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a token link to the receiver, whom is the email the user inputted in reset_request().
+Token link is made up of randomly generate characters and expires in 30 minutes.
+The link will redirect the user to the reset password page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="myapp.routes.signup">
+<code class="sig-prename descclassname">myapp.routes.</code><code class="sig-name descname">signup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myapp.routes.signup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goes to registration page and requests for email, username, and password. Stores members in database.
+:return: Sends user to login page after submitting a valid username, email, password.
+Else, it will not leave the page.</p>
+</dd></dl>
+
+<span class="target" id="module-myapp.models"></span><dl class="class">
+<dt id="myapp.models.Todo">
+<em class="property">class </em><code class="sig-prename descclassname">myapp.models.</code><code class="sig-name descname">Todo</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.models.Todo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database table for To Do list. Contains text, user id, and boolean flag</p>
+<dl class="attribute">
+<dt id="myapp.models.Todo.complete">
+<code class="sig-name descname">complete</code><a class="headerlink" href="#myapp.models.Todo.complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database Column for completed work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.Todo.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#myapp.models.Todo.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database Column for ID</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.Todo.text">
+<code class="sig-name descname">text</code><a class="headerlink" href="#myapp.models.Todo.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database Column for text</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.Todo.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#myapp.models.Todo.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database Column for User ID</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="myapp.models.User">
+<em class="property">class </em><code class="sig-prename descclassname">myapp.models.</code><code class="sig-name descname">User</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.models.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database for holding user’s username, email, password, and ToDoList.</p>
+<dl class="attribute">
+<dt id="myapp.models.User.Todolist">
+<code class="sig-name descname">Todolist</code><a class="headerlink" href="#myapp.models.User.Todolist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database relationship between tables User and Todo</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.User.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#myapp.models.User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database column for email</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="myapp.models.User.get_reset_token">
+<code class="sig-name descname">get_reset_token</code><span class="sig-paren">(</span><em class="sig-param">expires_sec=1800</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.models.User.get_reset_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a token that expires in 30 minutes and is randomly generated.
+:param expires_sec: Expires in 30 minutes
+:return: Returns a unique token</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.User.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#myapp.models.User.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database column for ID</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.User.password">
+<code class="sig-name descname">password</code><a class="headerlink" href="#myapp.models.User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database column for password</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.models.User.username">
+<code class="sig-name descname">username</code><a class="headerlink" href="#myapp.models.User.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database column for username</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="myapp.models.User.verify_reset_token">
+<em class="property">static </em><code class="sig-name descname">verify_reset_token</code><span class="sig-paren">(</span><em class="sig-param">token</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.models.User.verify_reset_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a token, tries to load the token and returns a user id.
+:param token: The token
+:return: Returns a user id</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-myapp.forms"></span><dl class="class">
+<dt id="myapp.forms.LoginForm">
+<em class="property">class </em><code class="sig-prename descclassname">myapp.forms.</code><code class="sig-name descname">LoginForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.forms.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>A form for entering username and password.
+Takes strings and verifies the data in the current database.</p>
+<dl class="attribute">
+<dt id="myapp.forms.LoginForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a string.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.LoginForm.remember">
+<code class="sig-name descname">remember</code><em class="property"> = &lt;UnboundField(BooleanField, ('Remember me',), {})&gt;</em><a class="headerlink" href="#myapp.forms.LoginForm.remember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remembers the user next time they attempt to log in.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.LoginForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Log In',), {})&gt;</em><a class="headerlink" href="#myapp.forms.LoginForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit checks if the username and password is valid in the database. If so, the site will take user to
+the dashboard ( via def dashboard() in routes.py).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.LoginForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a string that is at 4-15 characters long.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="myapp.forms.RegisterForm">
+<em class="property">class </em><code class="sig-prename descclassname">myapp.forms.</code><code class="sig-name descname">RegisterForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.forms.RegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>A form to register your email, username, and password.
+Takes the input(e.g, email) and outputs it to the database. If email is already taken, then
+it will print an error message.</p>
+<dl class="attribute">
+<dt id="myapp.forms.RegisterForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;, &lt;wtforms.validators.Email object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.RegisterForm.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a string that is at 1-50 characters long.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.RegisterForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.RegisterForm.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a string that is at 4-80 characters long.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.RegisterForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.RegisterForm.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a string that is at 4-15 characters long.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="myapp.forms.RegisterForm.validate_email">
+<code class="sig-name descname">validate_email</code><span class="sig-paren">(</span><em class="sig-param">email</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.forms.RegisterForm.validate_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="myapp.forms.RequestResetForm">
+<em class="property">class </em><code class="sig-prename descclassname">myapp.forms.</code><code class="sig-name descname">RequestResetForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.forms.RequestResetForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>A form that asks for a valid email.
+This page opens when you click the link “Forgot Password” located in the login page.
+If valid, sends the email via yagmail a token link. The token characters are randomly generated and expires in
+30 minutes due to the functions in models.py.
+If invalid, print invalid message and prevents code from sending a request token.</p>
+<dl class="attribute">
+<dt id="myapp.forms.RequestResetForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('email',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;, &lt;wtforms.validators.Email object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.RequestResetForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.RequestResetForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Request Password Reset',), {})&gt;</em><a class="headerlink" href="#myapp.forms.RequestResetForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="myapp.forms.ResetPasswordForm">
+<em class="property">class </em><code class="sig-prename descclassname">myapp.forms.</code><code class="sig-name descname">ResetPasswordForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#myapp.forms.ResetPasswordForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>A form that changes the password.
+Link can only be accessed by having a non-expired token link.
+User enters a new string (password) and submits. The new password then replaces
+the old password in the database.</p>
+<dl class="attribute">
+<dt id="myapp.forms.ResetPasswordForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('password',), {'validators': [&lt;wtforms.validators.InputRequired object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#myapp.forms.ResetPasswordForm.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requires a string that is at 4-40 characters long.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="myapp.forms.ResetPasswordForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Reset Password',), {})&gt;</em><a class="headerlink" href="#myapp.forms.ResetPasswordForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submits the input as the new password.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">project</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">How to Install</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Daniel.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/functions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
