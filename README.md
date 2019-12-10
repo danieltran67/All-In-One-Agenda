@@ -3,6 +3,8 @@
 
 ------------------------------------------------------------------------------------------
 **Features**
+
+
 Log In 
    Requires a username and password. Verifies it by checking the sqlite database called User.
    If it passes, user is redirected to the dashboard page.
