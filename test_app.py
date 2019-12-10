@@ -5,9 +5,13 @@ import flask
 import pytest
 from flask import request, Flask
 
+
 import flaskr
 from app import db, User, logout
 from werkzeug.http import dump_cookie
+
+from myapp import db
+
 import unittest
 
 app = flask.Flask(__name__)

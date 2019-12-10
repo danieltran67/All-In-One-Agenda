@@ -1,0 +1,98 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    Add Events
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='addevents.css')}}">
+{% endblock %}
+<head>
+    
+</head>
+
+<body>
+{% block content %}
+    <!--NAVBAR CODE-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right navbar-font">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li class="active"><a href="">Add Events</a></li>
+            <li><a href="{{ url_for('editevents') }}">Edit Events</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--NAVBAR CODE-->
+
+    <!--ADD EVENT CODE-->
+    <div class="container">
+        <div class="jumbotron">
+            <form>
+            <div class="row">
+                <h1>Add Event</h1>
+
+                <div class="textline">
+                    <label for="eventname">Event Name</label>
+                </div>
+                <div class="boxline">
+                    <input type="text" id="eventname" name="eventname" placeholder="Event Name...">
+                </div>
+            </div>
+            <div class="row">
+                <div class="textline">
+                    <label for="settime">Set Time</label>
+                </div>
+                <div class="boxline">
+                    <input type="date" id="settime" name="settime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="textline">
+                    <label for="description">Description</label>
+                </div>
+                <div class="boxline">
+                    <textarea id="description" name="descripiton" placeholder="Enter description here..." style="height: 150px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="textline">
+                    <label for="setalarm">Set Alarm</label>
+                </div>
+                <div class="boxline">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="buttonArrows" style="vertical-align:middle"><span>Submit</span></button>
+            </div>
+            <br>
+            <a href="#demo" class="btn btn-primary" data-toggle="collapse">Share Event</a>
+                <div id="demo" class="collapse">
+                    <h3>Enter username:</h3>
+                    <input type="text" name="username" style="width: 300px" placeholder="Share event with...">
+                    <button type="submit" class="buttonArrows" style="vertical-align:middle"><span>Share</span></button>
+                </div>
+        </form>
+        </div>
+    </div>
+    <!--ADD EVENT CODE-->
+
+</body>
+{% endblock %}

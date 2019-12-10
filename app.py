@@ -13,6 +13,7 @@ import yagmail
 from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -30,6 +31,13 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
 bootstrap = Bootstrap(app)
+
+"""
+myblog.py
+====================================
+The core module of my example project
+"""
+
 
 
 class LoginForm(FlaskForm):
@@ -105,6 +113,11 @@ class Todo(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/sphinx')
+def sphinx():
+    return render_template('sphinx_Index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -188,7 +201,7 @@ def add():
     db.session.add(todo)
     db.session.commit()
 
-    return redirect(url_for('dashboard'))
+    return redirect(url_for('reminders'))
 
 
 @app.route('/complete/<id>')
@@ -197,7 +210,15 @@ def complete(id):
     todo.complete = True
     db.session.commit()
 
-    return redirect(url_for('dashboard'))
+    return redirect(url_for('reminders'))
+
+
+@app.route('/delete<id>')
+def delete(id):
+    todelete = Todo.query.filter_by(id=int(id)).delete()
+    db.session.commit()
+
+    return redirect(url_for('reminders'))
 
 
 @app.route('/dashboard')
@@ -214,10 +235,20 @@ def addevents():
     return render_template('addevents.html', name=current_user.username)
 
 
-@app.route('/editevents')
+@app.route('/reminders')
 @login_required
-def editevents():
-    return render_template('editevents.html')
+def reminders():
+    incomplete = Todo.query.filter_by(complete=False).all()
+    complete = Todo.query.filter_by(complete=True).all()
+
+    return render_template('reminders.html', name=current_user.username, incomplete=incomplete,
+                           complete=complete)
+
+
+@app.route('/resources')
+@login_required
+def resources():
+    return render_template('resources.html')
 
 
 @app.route('/logout')
